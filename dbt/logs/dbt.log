@@ -1,0 +1,28 @@
+[0m09:53:05.780240 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000020205827620>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002020396C550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x00000202065A5950>]}
+
+
+============================== 09:53:05.784239 | 20b5b4ca-1a0a-4ed8-9eed-baf83718decd ==============================
+[0m09:53:05.784239 [info ] [MainThread]: Running with dbt=1.11.2
+[0m09:53:05.785926 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'target_path': 'None', 'cache_selected_only': 'False', 'warn_error': 'None', 'empty': 'None', 'debug': 'False', 'static_parser': 'True', 'log_cache_events': 'False', 'profiles_dir': 'C:\\Users\\SNOGUEIRA\\.dbt', 'quiet': 'False', 'log_format': 'default', 'use_colors': 'True', 'partial_parse': 'True', 'version_check': 'True', 'log_path': 'logs', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'fail_fast': 'False', 'invocation_command': 'dbt init .', 'no_print': 'None', 'send_anonymous_usage_stats': 'True', 'indirect_selection': 'eager', 'write_json': 'True', 'use_experimental_parser': 'False'}
+[0m09:53:05.816632 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\SNOGUEIRA\.dbt
+[0m09:54:18.892006 [debug] [MainThread]: Starter project path: C:\Users\SNOGUEIRA\AppData\Local\Programs\Python\Python313\Lib\site-packages\dbt\include\starter_project
+[0m09:54:18.916877 [info ] [MainThread]: 
+Your new dbt project "pyspark_dbt_medallion" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m09:54:18.917747 [info ] [MainThread]: Setting up your profile.
+[0m09:55:07.512373 [debug] [MainThread]: Spark adapter: Setting pyhive.hive logging to ERROR
+[0m09:55:07.512786 [debug] [MainThread]: Spark adapter: Setting thrift.transport logging to ERROR
+[0m09:55:07.513099 [debug] [MainThread]: Spark adapter: Setting thrift.protocol logging to ERROR
