@@ -10,7 +10,7 @@ config-version: 2
 
 # Perfil de conexión que dbt usará (definido en profiles.yml)
 # Este perfil indica cómo conectarse a Databricks
-profile: "default"
+profile: "pyspark_dbt_medallion"
 
 # Rutas donde dbt buscará los distintos tipos de archivos
 model-paths: ["models"]        # Modelos SQL principales
@@ -35,7 +35,7 @@ clean-targets:
 # También se puede controlar el schema de salida
 
 models:
-  pysparkdbt_proyect_internal:
+  pyspark_dbt_medallion:
 
     # Modelos de la capa SILVER
     # Transformaciones limpias y estructuradas desde Bronze

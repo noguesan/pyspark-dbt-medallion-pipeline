@@ -1,10 +1,10 @@
-{{
-    config(
-        materialized = 'incremental',  -- La tabla se actualiza incrementalmente (no se recrea completa)
-        unique_key = 'trip_id',        -- Clave única para detectar duplicados/updates
-        database = 'pysparkdbt',       -- Base de datos destino en Databricks
-        schema = 'gold'                -- Esquema destino (capa Gold)
-    )
+{{ 
+  config(
+    materialized='incremental',
+    unique_key='trip_id',
+    database='pysparkdbt',
+    schema='gold'
+  ) 
 }}
 
 select

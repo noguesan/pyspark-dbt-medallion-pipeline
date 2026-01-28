@@ -1,4 +1,4 @@
-ersion: 2
+version: 2
 
 # Definición de fuentes externas (tablas que dbt NO crea)
 # Representan capas Bronze y Silver ya existentes en Databricks

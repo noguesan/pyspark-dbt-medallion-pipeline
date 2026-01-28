@@ -1,9 +1,9 @@
-{{
+{{ 
   config(
-    materialized = 'incremental',   -- El modelo se construye de forma incremental
-    unique_key = 'trip_id',         -- Clave única para identificar registros
-    enabled = true                  -- Permite activar/desactivar el modelo
-  )
+    materialized='incremental',
+    unique_key='trip_id',
+    enabled=true
+  ) 
 }}
 
 -- ==========================================================
@@ -54,4 +54,3 @@ WHERE
             FROM {{ this }}   -- {{ this }} refiere a la tabla destino del modelo
         )
 {% endif %}
-
