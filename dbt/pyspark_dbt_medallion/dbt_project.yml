@@ -1,36 +1,49 @@
+# Nombre del proyecto dbt
+# Debe estar en minúsculas y usar guiones bajos si es necesario
+# Idealmente representa el objetivo del proyecto o la organización
+name: "pyspark_dbt_medallion"
+# Versión del proyecto (útil para control de cambios)
+version: "1.0.0"
 
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good package name should reflect your organization's
-# name or the intended use of these models
-name: 'pyspark_dbt_medallion'
-version: '1.0.0'
+# Versión del esquema de configuración de dbt
+config-version: 2
 
-# This setting configures which "profile" dbt uses for this project.
-profile: 'pyspark_dbt_medallion'
+# Perfil de conexión que dbt usará (definido en profiles.yml)
+# Este perfil indica cómo conectarse a Databricks
+profile: "default"
 
-# These configurations specify where dbt should look for different types of files.
-# The `model-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
+# Rutas donde dbt buscará los distintos tipos de archivos
+model-paths: ["models"]        # Modelos SQL principales
+analysis-paths: ["analyses"]   # Análisis exploratorios
+test-paths: ["tests"]          # Tests de calidad de datos
+seed-paths: ["seeds"]          # Archivos CSV cargados como tablas
+macro-paths: ["macros"]        # Macros reutilizables
+snapshot-paths: ["snapshots"]  # Snapshots para historización
 
-clean-targets:         # directories to be removed by `dbt clean`
+# Carpeta donde dbt guarda archivos compilados
+target-path: "target"
+
+# Carpetas que se eliminan cuando se ejecuta `dbt clean`
+clean-targets:
   - "target"
   - "dbt_packages"
 
+# -------------------------
+# CONFIGURACIÓN DE MODELOS
+# -------------------------
+# Aquí se define cómo se materializan los modelos (vista, tabla, incremental, etc.)
+# También se puede controlar el schema de salida
 
-# Configuring models
-# Full documentation: https://docs.getdbt.com/docs/configuring-models
-
-# In this example config, we tell dbt to build all models in the example/
-# directory as views. These settings can be overridden in the individual model
-# files using the `{{ config(...) }}` macro.
 models:
-  pyspark_dbt_medallion:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+  pysparkdbt_proyect_internal:
+
+    # Modelos de la capa SILVER
+    # Transformaciones limpias y estructuradas desde Bronze
+    silver:
+      +materialized: table   # Se crean como tablas físicas
+      +schema: silver        # Se guardan en el schema "silver"
+
+    # Modelos de la capa GOLD
+    # Datos finales listos para consumo analítico
+    gold:
+      +materialized: table   # Se crean como tablas físicas

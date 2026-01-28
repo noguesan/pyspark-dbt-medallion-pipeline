@@ -1,0 +1,43 @@
+ersion: 2
+
+# Definición de fuentes externas (tablas que dbt NO crea)
+# Representan capas Bronze y Silver ya existentes en Databricks
+
+sources:
+
+  # ============================
+  # BRONZE LAYER — Raw ingestion
+  # ============================
+  - name: source_bronze
+    description: "Tablas crudas provenientes de la capa Bronze (ingestión inicial desde fuentes externas)"
+    catalog: pysparkdbt
+    schema: bronze
+
+    tables:
+      - name: trips
+        description: "Datos crudos de viajes, tal como llegan desde la fuente original"
+
+  # ============================
+  # SILVER LAYER — Cleaned data
+  # ============================
+  - name: source_silver
+    description: "Tablas limpias y estandarizadas en la capa Silver"
+
+    catalog: pysparkdbt
+    schema: silver
+
+    tables:
+      - name: customers
+        description: "Información limpia y normalizada de clientes"
+
+      - name: locations
+        description: "Dimensión de ubicaciones geográficas"
+
+      - name: drivers
+        description: "Datos normalizados de conductores"
+
+      - name: payments
+        description: "Registros de pagos procesados"
+
+      - name: vehicles
+        description: "Información de vehículos asociados a los viajes"
